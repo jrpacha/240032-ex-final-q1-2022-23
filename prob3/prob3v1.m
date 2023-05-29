@@ -108,29 +108,6 @@ hold off
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Part (C)
-% for the sake of clarity, ve compute again K, F and Q
-clear K F Q u;
-K = zeros(n1);
-F = zeros(n1,1);
-Q = zeros(n1,1);
-
-for e=1:numElem
-    rows = [elem(e,1), elem(e,2)];
-    cols = rows;
-    x1 = nodes(rows(1,1)); x2 = nodes(rows(1,2));
-    Ke = (A1(x2)-A1(x1))*K1+K0;
-    if e == 1
-        Ke1=Ke(1,1);      %save the stifness matrix of the 1st element 
-    end
-    K(rows,cols) = K(rows,cols) + Ke;
-    F(rows)=F(rows)+Fe;
-end
-
-Q(1) = -beta*a1(a);
-Q(end) = gamma*a1(b);
-%Essential BC: none
-%Solve the system:
-Qm = Q + F; 
 K(1,1) = K(1,1)-alpha*a1(a);         %add the "spring-like" term to the lhs
 u = K\Qm;
 avU = sum(u)/n1;
