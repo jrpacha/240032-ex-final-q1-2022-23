@@ -24,7 +24,7 @@ ndim = size(nodes,2);
 
 %figure()
 numbering=0;
-plotElements(nodes, elem, numbering);
+plotElementsOld(nodes, elem, numbering);
 hold on
 %Boundary nodes
 indNodBd = boundaryNodes(nodes, elem);
