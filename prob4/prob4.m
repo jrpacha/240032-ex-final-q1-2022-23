@@ -27,7 +27,7 @@ load meshcirclediamont.mat;
 numNod = size(nodes,1);
 numElem  = size(elem,1);
 
-numbering = 1;                        %Set to 1 to identify the nodes on 
+numbering = 0;                        %Set to 1 to identify the nodes on 
                                       %the upper side of the rombus 
 plotElements(nodes, elem, numbering); %In this case is better to use
                                       %plotElements rather than 
@@ -36,6 +36,7 @@ hold on
 [indNodsBd, ~, ~, ~] = boundaryNodes(nodes, elem);
 indNodsCirc = find(sqrt((nodes(:,1)-0.8).^2 + (nodes(:,2)-0.5).^2) > 0.43);
 indNodsIntBd = setdiff(indNodsBd,indNodsCirc);
+
 indNodsULS = [1;2;37]; %these nodes have been found 'by inspection', 
                        %looking at the figure (set numbering = 1)
 
