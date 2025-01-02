@@ -223,3 +223,9 @@ TSWLatexianTemp*
 
 # expex forward references with \gathertags
 *-tags.tex
+
+# Exclude all the files in folder "condultas"
+/consultas/*
+
+# Exclude .DS_Store: Desktop Services Store (macOS)
+*.DS_Store
